@@ -7,8 +7,6 @@ Telechat-chat-openai
 </div>
 
 
-## Installation
-
 - Telechat-12b is supported by default, you can also support Telechat-7b & Telechat-11b by modifying the tokenizer loading here.
 
 - This project only opens the chat-openai version of telechat. agent-chat-openai currently has no open source plans.
