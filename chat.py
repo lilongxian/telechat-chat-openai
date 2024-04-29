@@ -6,11 +6,10 @@ from fastapi.middleware.cors import CORSMiddleware
 from contextlib import asynccontextmanager
 from sse_starlette.sse import EventSourceResponse
 from cc.base import ChatCompletionResponse, ChatCompletionRequest
-from cc.util import predict_stream, contains_custom_function
+from cc.util import predict_stream
 import time
 from typing import List, Literal, Optional, Union
 from pydantic import BaseModel, Field
-from cc.util import generate_stream_chatglm3
 import gc
 import torch
 from transformers import PreTrainedModel, PreTrainedTokenizer

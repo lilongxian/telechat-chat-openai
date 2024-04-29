@@ -16,7 +16,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from contextlib import asynccontextmanager
 from sse_starlette.sse import EventSourceResponse
 from cc.base import ChatCompletionResponse, ChatCompletionRequest
-from cc.util import predict_stream, contains_custom_function
+from cc.util import predict_stream
 from transformers import GenerationConfig
 from telechat.tokenization_telechat import TelechatTokenizer as AutoTokenizer
 from telechat.modeling_telechat import TelechatForCausalLM as AutoModel
@@ -67,10 +67,7 @@ async def create_chat_completion(request: ChatCompletionRequest):
     model_type = MODEL_TYPE.lower()
     gen_params["tools"] = []
     predict_stream_generator = predict_stream(model, tokenizer, model_type, gen_params, generate_config, model_type)
-    output = next(predict_stream_generator)
-
-    if not contains_custom_function(output, gen_params["tools"]):
-        return EventSourceResponse(predict_stream_generator, media_type="text/event-stream")
+    return EventSourceResponse(predict_stream_generator, media_type="text/event-stream")
 
 
 def main():

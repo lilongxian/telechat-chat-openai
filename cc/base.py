@@ -49,7 +49,7 @@ class ChatCompletionRequest(BaseModel):
     temperature: Optional[float] = 0.8
     top_p: Optional[float] = 0.8
     max_tokens: Optional[int] = None
-    stream: Optional[bool] = False
+    stream: Optional[bool] = True
     tools: Optional[Union[dict, List[dict]]] = None
     # Additional parameters
     repetition_penalty: Optional[float] = 1.1
