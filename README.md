@@ -20,6 +20,8 @@ Telechat-chat-openai
 
 ###  Installation package
 
+Experimental environment:  python3.8 + cuda117 + pytorch2.0.0  + transformers4.37.0
+
 ```bash
 pip3 install -r requirements.txt
 ```
